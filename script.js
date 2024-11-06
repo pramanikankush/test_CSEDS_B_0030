@@ -1,7 +1,11 @@
-
 function getJoke() {
     fetch('https://v2.jokeapi.dev/joke/Any')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
         .then(data => {
             let jokeText;
             if (data.type === 'single') {
@@ -13,7 +17,8 @@ function getJoke() {
             document.getElementById('character-count').innerText = "Characters: " + jokeText.length;
         })
         .catch(error => {
-            document.getElementById('joke-text').innerText = "Oops, couldn't load a joke!";
+            console.error("Error fetching joke:", error);
+            document.getElementById('joke-text').innerText = "Sorry, couldn't load a joke! Try again later.";
             document.getElementById('character-count').innerText = "Characters: 0";
         });
 }

@@ -1,4 +1,3 @@
-
 body {
     font-family: sans-serif;
     background-color: #f3f3f3;
@@ -12,10 +11,31 @@ body {
     margin: 10px auto;
     width: 250px;
     background-color: #fff;
+    border-radius: 8px;
 }
 
 button {
     margin: 5px;
     padding: 10px;
     font-size: 14px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
 }
+
+button:first-of-type {
+    background-color: #249ea2;
+    color: white;
+}
+
+button:last-of-type {
+    background-color: #f44336; 
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05); 
+}
+
